@@ -55,7 +55,7 @@ $(document).ready(function(){
        if(str == "") {
                $( "#txtHint" ).html("Guest information will be listed here...");
        }else {
-               $.get( "{{ url('search?id=') }}"+str, function( data ) {
+               $.get( "{{ url('/search?id=') }}"+str, function( data ) {
                    $( "#txtHint" ).html(data);
             });
        }
@@ -97,7 +97,7 @@ $(document).ready(function(){
   });
 
   $( "#clear" ).click(function() {
-      $("#search-guest").val(""); 
+      $("#search-guest").val("");
       $("#search-guest").trigger( "keyup" );
   });
 
