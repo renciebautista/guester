@@ -60,4 +60,14 @@ class MasterfileController extends Controller
 
       return redirect()->route("masterfile.index");
     }
+
+    public function export()
+    {
+        $guest = Guest::select('id', 'first_name', 'last_name', 'company', 'email', 'contact_number', 'arrived', 'arrived_date')->get();
+        Excel::create("Attendee", function($excel) use($guest){
+    			$excel->sheet('Sheet1', function($sheet) use($guest) {
+    				$sheet->fromModel($guest,null, 'A1', true);
+    			})->download('xls');
+    		});
+    }
 }

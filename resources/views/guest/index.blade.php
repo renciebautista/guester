@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-  <h1 class="header center orange-text"> Guester <a class="btn btn-floating pulse btn-large"><i class="material-icons">person_pin</i></a></h1>
+  <h1 class="header center orange-text"> Event Management System <a class="btn btn-floating pulse btn-large"><i class="material-icons">person_pin</i></a></h1>
   <div class="row center">
     <form class="col s12 m12 l12">
       <div class="row">
@@ -62,16 +62,19 @@ $(document).ready(function(){
    });
 
    $('.modal').modal();
-   $('body').on('click','table tbody tr',function(){
-      var full_name = $(this).find("td").eq(0).html() + " " + $(this).find("td").eq(1).html();
-      var company = $(this).find("td").eq(2).html();
+   $('body').on('click','.info',function(){
+      console.log($(this).closest("tr"));
+      var tr = $(this).closest("tr");
+      var full_name = tr.find("td").eq(0).html() + " " + tr.find("td").eq(1).html();
+      var company = tr.find("td").eq(2).html();
       $("#full_name").text(full_name);
       $("#company").text(company);
-      $("#email").text($(this).find("td").eq(3).html());
-      $("#contact").text($(this).find("td").eq(6).html());
-      $("#table_no").text("Table # " +$(this).find("td").eq(4).html());
-      $("#guest").val($(this).find("td").eq(7).html());
+      $("#email").text(tr.find("td").eq(3).html());
+      $("#contact").text(tr.find("td").eq(6).html());
+      $("#table_no").text("Table # " +tr.find("td").eq(4).html());
+      $("#guest").val(tr.find("td").eq(7).html());
       $('#modal1').modal('open');
+      return false;
    });
 
    $('form').submit(function() {

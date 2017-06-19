@@ -11,7 +11,8 @@
 |
 */
 Route::get('/', 'GuestController@index');
-Route::get('/search/{id?}', 'GuestController@index');
+Route::get('search/{id?}', 'GuestController@index');
 Route::post('/', 'GuestController@store');
 
+Route::get('/masterfile/export', 'MasterfileController@export');
 Route::resource('masterfile', 'MasterfileController');

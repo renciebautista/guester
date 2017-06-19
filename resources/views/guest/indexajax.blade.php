@@ -18,6 +18,8 @@ if(!empty($guests ))
                                 <th>Arrived</th>
                                 <th style="display:none;"></th>
                                 <th style="display:none;"></th>
+                                <th></th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -42,6 +44,7 @@ if(!empty($guests ))
                             <td>'.$arrived.'</td>
                             <td style="display:none;">'.$guest->contact_number.'</td>
                             <td style="display:none;">'.$guest->id.'</td>
+                            <td><a class=" info waves-effect waves-light btn" href="#">Info</a></td>
                             </tr>
                     ';
 

@@ -32,6 +32,7 @@ class GuestController extends Controller
         if($request->ajax()){
           $guest = Guest::find($request->id);
           $guest->arrived = true;
+          $guest->arrived_date = date("Y-m-d H:i:s");
           $guest->update();
           return response()->json($guest);
         }
